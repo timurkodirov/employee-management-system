@@ -1,0 +1,52 @@
+<%- include('partials/header.ejs') %>
+
+<form action="/edit" method="get">
+<div class="table_box">
+    <a class="btn btn-dark btn-lg" href="/add" role="button">Add  <i class="fa-solid fa-user"></i></a>
+    <hr>
+<table>
+    <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Status</th>
+    <th>Action</th>
+    </tr>
+   <% employees.forEach(function(employee){ %>
+      
+   
+    <tr>
+    <td><%= employee.name %></td>
+    <td><%= employee.email %></td>
+    <td><%= employee.status %></td>
+    <td><a href="/edit/<%= employee._id %>" type="submit"> <i class="fa-solid fa-pen"></i></a>  <a href="/delete"><i class="fa-solid fa-trash"></i></a></td>
+    </tr>
+
+ <% }) %>
+
+
+    <!-- <tr>
+    <td>Lois</td>
+    <td>lois@gmail.com</td>
+    <td>inactive</td>
+    <td><a href="/edit"> <i class="fa-solid fa-pen"></i></a> <a href="/delete"><i class="fa-solid fa-trash"></i></a></td>
+    </tr>
+    <tr>
+    <td>Joe</td>
+    <td>joe@gmail.com</td>
+    <td>inactive</td>
+    <td><a href="/edit"> <i class="fa-solid fa-pen"></i></a> <a href="/delete"><i class="fa-solid fa-trash"></i></a></td>
+    </tr>
+    <tr>
+    <td>Cleveland</td>
+    <td>ab@gmail.com</td>
+    <td>active</td>
+    <td><a href="/edit"> <i class="fa-solid fa-pen"></i></a> <a href="/delete"><i class="fa-solid fa-trash"></i></a></td>
+    </tr> -->
+  </table>
+  <hr>
+</div>
+
+</form>
+<hr>
+
+<%- include('partials/footer.ejs') %>
