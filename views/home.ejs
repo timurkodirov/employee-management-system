@@ -18,7 +18,12 @@
     <td><%= employee.name %></td>
     <td><%= employee.email %></td>
     <td><%= employee.status %></td>
-    <td><a href="/edit/<%= employee._id %>" type="submit"> <i class="fa-solid fa-pen"></i></a>  <a href="/delete"><i class="fa-solid fa-trash"></i></a></td>
+    <td>
+      
+      <a href="/edit/<%= employee._id %>" type="submit"> <i class="fa-solid fa-pen"></i></a>  
+      <a href="/delete/<%= employee._id %>" type="submit" name="employe_id" value="<%= employee._id %>"  ><i class="fa-solid fa-trash"></i></a>
+    
+    </td>
     </tr>
 
  <% }) %>

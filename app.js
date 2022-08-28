@@ -37,10 +37,23 @@ app.get('/', (req, res)=>{
 
 app.get('/add', (req, res)=>{
     res.render("add");
-})
+});
 app.get('/edit/:id', (req, res)=>{
     res.render("edit");
-})
+});
+
+app.get('/delete/:id', (req, res)=>{
+    console.log(req.params.id)
+    Employee.findByIdAndDelete(req.params.id, function(err){
+        if(err){
+            console.log(err)
+        }else{
+            res.redirect("/");
+        }
+    })
+});
+
+
 app.post('/',(req, res)=>{
     // res.render("home")
    const status =  req.body.status;
@@ -51,7 +64,7 @@ app.post('/',(req, res)=>{
    });
    employee.save();
    res.redirect("/")
-})
+});
 app.post('/add', (req, res)=>{
     res.redirect('/')
 });
@@ -59,6 +72,9 @@ app.post('/add', (req, res)=>{
 app.post('/edit', (req, res)=>{
     res.render("edit")
 });
+
+
+
 
 
 app.listen(3000, ()=>{
